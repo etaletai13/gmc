@@ -20,7 +20,7 @@
     "build": "cd go-musicoin/ && make gmc",
     "mv-bin": "mv go-musicoin/build/bin ../"
   },
-  "devDependencies": {
+  "dependencies": {
     "download-git-repo": "^1.0.2"
   }
 }
