@@ -18,12 +18,9 @@
     "get-src": "node index.js",
     "fixup": "sed -e 's/1.7/1.10/' -i go-musicoin/build/ci.go",
     "build": "cd go-musicoin/ && make gmc",
-    "mv-bin": "mv go-musicoin/build/bin/gmc ./ && rm -rf go-musicoin"
+    "mv-bin": "mv go-musicoin/build/bin ../"
   },
-  "dependencies": {
+  "devDependencies": {
     "download-git-repo": "^1.0.2"
-  },
-  "bin": {
-    "gmc": "./gmc"
   }
 }
