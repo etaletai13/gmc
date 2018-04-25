@@ -1,0 +1,34 @@
+{
+  "name": "node-gmc",
+  "version": "1.5.0",
+  "main": "./index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Etaletai",
+    "email": "13@etaletai.com",
+    "url": "https://github.com/etaletai13"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/etaletai13/gmc-js.git"
+  },
+  "issues": "https://github.com/etaletai13/gmc-js/issues",
+  "scripts": {
+    "postinstall": "yarn get-src && yarn fixup && yarn build && yarn mv-bin",
+    "get-src": "node index.js",
+    "fixup": "sed -e 's/1.7/1.10/' -i go-musicoin/build/ci.go",
+    "build": "cd go-musicoin/ && make gmc",
+    "mv-bin": "mv go-musicoin/build/bin/gmc ./gmc && rm -rf go-musicoin"
+  },
+  "dependencies": {
+    "download-git-repo": "^1.0.2"
+  },
+  "files": [
+    "index.js",
+    "package.json",
+    "yarn.lock"
+  ],
+  "bin": {
+    "gmc": "./gmc"
+  }
+}
