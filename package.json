@@ -10,15 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/etaletai13/gmc-js.git"
+    "url": "https://github.com/etaletai13/gmc.git"
   },
-  "issues": "https://github.com/etaletai13/gmc-js/issues",
+  "issues": "https://github.com/etaletai13/gmc/issues",
   "scripts": {
-    "postinstall": "yarn get-src && yarn fixup && yarn build",
+    "postinstall": "yarn get-src && yarn fixup && yarn make-gmc",
     "get-src": "node index.js",
-    "fixup": "sed -e 's/1.7/1.10/' -i bin/gmc/build/ci.go",
-    "build": "cd bin/gmc && make gmc && yarn place",
-    "place": "cp /tmp/gmc/bin/gmc/build/bin/gmc bin/gmc/"
+    "fixup": "sed -e 's/1.7/1.10/' -i gmc/build/ci.go",
+    "make-gmc": "cd gmc/ && build/env.sh go run build/ci.go install ./cmd/gmc"
   },
   "dependencies": {
     "download-git-repo": "^1.0.2"
