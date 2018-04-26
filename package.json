@@ -39,9 +39,7 @@
   },
   "issues": "https://github.com/etaletai13/gmc/issues",
   "scripts": {
-    "postinstall": "yarn gmcSource && yarn makeGmc && yarn test",
-    "test": "yarn versionTest",
-    "versionTest": "gmc version",
+    "postinstall": "yarn gmcSource && yarn makeGmc",
     "gmcSource": "node gmcSource.js && yarn patchSource",
     "patchSource": "sed -e 's/1.7/1.10/' -i gmc/build/ci.go",
     "makeGmc": "cd gmc/ && build/env.sh go run build/ci.go install ./cmd/gmc"
