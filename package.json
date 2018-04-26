@@ -12,6 +12,9 @@
     "type": "git",
     "url": "https://github.com/etaletai13/gmc.git"
   },
+  "bin": {
+    "gmc": "gmc/build/bin/gmc"
+  },
   "issues": "https://github.com/etaletai13/gmc/issues",
   "scripts": {
     "postinstall": "yarn get-src && yarn fixup && yarn make-gmc",
