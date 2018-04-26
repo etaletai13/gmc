@@ -14,12 +14,11 @@
   },
   "issues": "https://github.com/etaletai13/gmc-js/issues",
   "scripts": {
-    "postinstall": "yarn get-src && yarn fixup && yarn build && yarn mv-bin && yarn cleanup",
+    "postinstall": "yarn get-src && yarn fixup && yarn build",
     "get-src": "node index.js",
-    "fixup": "sed -e 's/1.7/1.10/' -i go-musicoin/build/ci.go",
-    "build": "cd go-musicoin/ && make gmc",
-    "mv-bin": "mv go-musicoin/build/bin ../",
-    "cleanup": "cd .. && rm -rf gmc"
+    "fixup": "sed -e 's/1.7/1.10/' -i bin/gmc/build/ci.go",
+    "build": "cd bin/gmc && make gmc && yarn place",
+    "place": "cp /tmp/gmc/bin/gmc/build/bin/gmc bin/gmc/"
   },
   "dependencies": {
     "download-git-repo": "^1.0.2"
