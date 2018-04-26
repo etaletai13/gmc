@@ -1,13 +1,31 @@
 {
   "name": "gmc",
   "version": "1.5.0",
-  "main": "./index.js",
-  "license": "MIT",
+  "description": "a go-musicoin binary for node",
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
   "author": {
     "name": "Etaletai",
     "email": "13@etaletai.com",
     "url": "https://github.com/etaletai13"
   },
+  "keywords": [
+    "go-musicoin",
+    "musicoin",
+    "blockchain",
+    "gmc",
+    "wallet"
+  ],
+  "maintainers": [ 
+    {
+      "name": "Etaletai",
+      "email": "13@etaletai",
+      "web": "https://github.com/etaletai13"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/etaletai13/gmc.git"
@@ -15,12 +33,18 @@
   "bin": {
     "gmc": "gmc/build/bin/gmc"
   },
+  "bugs": {
+    "mail": "13@etaletai.com",
+    "web": "https://github.com/etaletai/gmc/issues"
+  },
   "issues": "https://github.com/etaletai13/gmc/issues",
   "scripts": {
-    "postinstall": "yarn get-src && yarn fixup && yarn make-gmc",
-    "get-src": "node index.js",
-    "fixup": "sed -e 's/1.7/1.10/' -i gmc/build/ci.go",
-    "make-gmc": "cd gmc/ && build/env.sh go run build/ci.go install ./cmd/gmc"
+    "postinstall": "yarn gmcSource && yarn makeGmc && yarn test",
+    "test": "yarn versionTest",
+    "versionTest": "gmc version",
+    "gmcSource": "node gmcSource.js && yarn patchSource",
+    "patchSource": "sed -e 's/1.7/1.10/' -i gmc/build/ci.go",
+    "makeGmc": "cd gmc/ && build/env.sh go run build/ci.go install ./cmd/gmc"
   },
   "dependencies": {
     "download-git-repo": "^1.0.2"
