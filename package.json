@@ -17,7 +17,7 @@
     "web": "https://github.com/etaletai/gmc/issues"
   },
   "scripts": {
-    "prepare": "node source.js && node patch.js && node build.js && rm -rf bin && mv gmc/build/bin ."
+    "prepare": "node build.js && rm -rf bin && mv gmc/build/bin ."
   },
   "devDependencies": {
     "child_process": "^1.0.2",
