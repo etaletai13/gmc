@@ -4,41 +4,20 @@
   "description": "a go-musicoin binary for node",
   "license": "MIT",
   "homepage": "https://musicoin.org",
-  "author": {
-    "name": "Etaletai",
-    "email": "13@etaletai.com",
-    "url": "https://github.com/etaletai13"
+  "files": "bin/gmc",
+  "bin": {
+    "gmc": "bin/gmc"
   },
-  "keywords": [
-    "go-musicoin",
-    "musicoin",
-    "blockchain",
-    "gmc",
-    "wallet"
-  ],
-  "contributors": [
-    {
-      "name": "Etaletai",
-      "email": "13@etaletai",
-      "web": "https://github.com/etaletai13"
-    }
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/etaletai13/gmc.git"
-  },
-  "bin": {
-    "gmc": "./gmc/build/bin/gmc"
   },
   "bugs": {
     "mail": "13@etaletai.com",
     "web": "https://github.com/etaletai/gmc/issues"
   },
-  "issues": "https://github.com/etaletai13/gmc/issues",
   "scripts": {
-    "install": "node source.js && node patch.js",
-    "postinstall": "node build.js",
-    "test": "node test.js"
+    "preinstall": "node source.js && node patch.js && node build.js && rm -rf bin && mv gmc/build/bin ."
   },
   "dependencies": {
     "child_process": "^1.0.2",
