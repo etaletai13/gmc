@@ -2,11 +2,8 @@
   "name": "gmc",
   "version": "1.5.0",
   "description": "a go-musicoin binary for node",
-  "licenses": [
-    {
-      "type": "MIT"
-    }
-  ],
+  "license": "MIT",
+  "homepage": "https://musicoin.org",
   "author": {
     "name": "Etaletai",
     "email": "13@etaletai.com",
@@ -19,7 +16,7 @@
     "gmc",
     "wallet"
   ],
-  "maintainers": [ 
+  "contributors": [
     {
       "name": "Etaletai",
       "email": "13@etaletai",
@@ -31,7 +28,7 @@
     "url": "https://github.com/etaletai13/gmc.git"
   },
   "bin": {
-    "gmc": "gmc/build/bin/gmc"
+    "gmc": "./gmc/build/bin/gmc"
   },
   "bugs": {
     "mail": "13@etaletai.com",
@@ -39,12 +36,12 @@
   },
   "issues": "https://github.com/etaletai13/gmc/issues",
   "scripts": {
-    "postinstall": "yarn gmcSource && yarn makeGmc",
-    "gmcSource": "node gmcSource.js && yarn patchSource",
-    "patchSource": "sed -e 's/1.7/1.10/' -i gmc/build/ci.go",
-    "makeGmc": "cd gmc/ && build/env.sh go run build/ci.go install ./cmd/gmc"
+    "install": "node source.js && node patch.js",
+    "postinstall": "node build.js",
+    "test": "node test.js"
   },
   "dependencies": {
+    "child_process": "^1.0.2",
     "download-git-repo": "^1.0.2"
   }
 }
