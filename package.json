@@ -37,7 +37,7 @@
   "issues": "https://github.com/etaletai13/gmc/issues",
   "scripts": {
     "install": "node source.js && node patch.js",
-    "postinstall": "node build.js && yarn autoclean --force",
+    "postinstall": "node build.js",
     "test": "node test.js"
   },
   "dependencies": {
