@@ -4,7 +4,6 @@
   "description": "a go-musicoin binary for node",
   "license": "MIT",
   "homepage": "https://musicoin.org",
-  "main": "./test.js",
   "author": {
     "name": "Etaletai",
     "email": "13@etaletai.com",
@@ -29,11 +28,8 @@
     "url": "https://github.com/etaletai13/gmc.git"
   },
   "bin": {
-    "gmc": "gmc/build/bin/gmc"
+    "gmc": "./gmc/build/bin/gmc"
   },
-  "files": [
-    "gmc/build/bin/gmc"
-  ],
   "bugs": {
     "mail": "13@etaletai.com",
     "web": "https://github.com/etaletai/gmc/issues"
@@ -41,7 +37,7 @@
   "issues": "https://github.com/etaletai13/gmc/issues",
   "scripts": {
     "install": "node source.js && node patch.js",
-    "postinstall": "node build.js",
+    "postinstall": "node build.js && yarn autoclean --force",
     "test": "node test.js"
   },
   "dependencies": {
