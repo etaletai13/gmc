@@ -14,9 +14,6 @@
     "type": "git",
     "url": "https://github.com/etaletai13/gmc.git"
   },
-  "bin": {
-    "gmc": "./bin/gmc"
-  },
   "keywords": [
     "go-musicoin",
     "musicoin",
@@ -25,11 +22,12 @@
     "wallet"
   ],
   "scripts": {
-    "install": "yarn clone && yarn patch && yarn build && yarn clean",
-    "build": "cd src && make gmc",
-    "patch": "sed -i.tmp 's/1.7/1.10/g' ./src/build/ci.go",
-    "clone": "git clone https://github.com/Musicoin/go-musicoin.git src",
-    "clean": "rm -f ./bin/gmc && mv src/build/bin/gmc ./bin/gmc",
-    "test": "./bin/gmc version"
+    "build": "./build/env.sh go run ./build/ci.go install",
+    "clean": "mkdir -p bin && mv ./build/bin/* ./bin/",
+    "clone": "git clone https://github.com/Musicoin/go-musicoin.git gomc",
+    "copy": "mv gomc/* .",
+    "install": "yarn clone && yarn copy && yarn patch && yarn build && yarn clean",
+    "patch": "sed -i.tmp 's/1.7/1.10/g' ./build/ci.go",
+    "test": "./build/env.sh go run ./build/ci.go test"
   }
 }
